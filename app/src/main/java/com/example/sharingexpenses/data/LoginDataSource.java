@@ -13,6 +13,8 @@ public class LoginDataSource {
 
         try {
             // TODO: handle loggedInUser authentication
+            username ="s3dany";
+            password= "12345678";
             LoggedInUser fakeUser =
                     new LoggedInUser(
                             java.util.UUID.randomUUID().toString(),
