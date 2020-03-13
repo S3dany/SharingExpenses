@@ -18,7 +18,49 @@ public class MainPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        Button mOthersOwe = findViewById(R.id.othersOwe);
+        Button mIOwe = findViewById(R.id.iOwe);
+        Button mAddBill = findViewById(R.id.addBill);
+        Button mContacts = findViewById(R.id.contacts);
         Button mLogout = findViewById(R.id.logout);
+
+        //click listener for mOtherOwe button
+        mOthersOwe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                return;
+            }
+        });
+
+        //click listener for mIOwe button
+        mIOwe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                return;
+            }
+        });
+
+        //click listener for mAddBill button
+        mAddBill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                return;
+            }
+        });
+
+        //click listener for mContacts button
+        mContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                return;
+            }
+        });
+
+        //click listener for mLogout button
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
