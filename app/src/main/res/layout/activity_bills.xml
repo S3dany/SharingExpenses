@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BillsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/bills_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bills" />
+
+            <TextView
+                android:id="@+id/textToPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To pay:" />
+
+            <ListView
+                android:id="@+id/listToPay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textToReceive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To receive:" />
+
+            <ListView
+                android:id="@+id/listToReceive"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textPastBills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Past bills" />
+
+            <ListView
+                android:id="@+id/listPastBills"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
