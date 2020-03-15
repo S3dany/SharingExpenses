@@ -1,8 +1,10 @@
-package com.example.sharingexpenses;
+package com.example.sharingexpenses.ui.friends_page;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.sharingexpenses.R;
 
 public class FriendsActivity extends AppCompatActivity {
 
