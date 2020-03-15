@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.sharingexpenses.R;
+import com.example.sharingexpenses.ui.friends_page.FriendsActivity;
 import com.example.sharingexpenses.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -55,7 +56,8 @@ public class MainPageActivity extends AppCompatActivity {
         mContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+
+                startActivity(new Intent(getApplicationContext(), FriendsActivity.class));
                 return;
             }
         });
