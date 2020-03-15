@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1093419766892",
+    "firebase_url": "https://sharingexpenses-545ae.firebaseio.com",
+    "project_id": "sharingexpenses-545ae",
+    "storage_bucket": "sharingexpenses-545ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093419766892:android:1d7562d4d5d3f491fc7449",
+        "android_client_info": {
+          "package_name": "com.example.sharingexpenses"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093419766892-5ouub8rkok6ng0but8a9r5lsvvb30s32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMbXBkryNRjHXpYxeOC2z7o2gIy2XAvyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093419766892-5ouub8rkok6ng0but8a9r5lsvvb30s32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
