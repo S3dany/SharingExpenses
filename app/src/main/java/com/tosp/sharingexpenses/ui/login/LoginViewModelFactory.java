@@ -1,11 +1,11 @@
-package com.example.sharingexpenses.ui.login;
+package com.tosp.sharingexpenses.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.sharingexpenses.data.LoginDataSource;
-import com.example.sharingexpenses.data.LoginRepository;
+import com.tosp.sharingexpenses.data.LoginDataSource;
+import com.tosp.sharingexpenses.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

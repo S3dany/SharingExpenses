@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.ui.main_page;
+package com.tosp.sharingexpenses.ui.main_page;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.sharingexpenses.R;
-import com.example.sharingexpenses.ui.login.LoginActivity;
+import com.tosp.sharingexpenses.R;
+import com.tosp.sharingexpenses.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainPageActivity extends AppCompatActivity {

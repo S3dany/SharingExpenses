@@ -1,4 +1,4 @@
-package com.example.sharingexpenses;
+package com.tosp.sharingexpenses;
 
 import org.junit.Test;
 

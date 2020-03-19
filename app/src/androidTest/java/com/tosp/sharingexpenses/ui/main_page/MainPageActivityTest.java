@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.ui.main_page;
+package com.tosp.sharingexpenses.ui.main_page;
 
 import android.view.View;
 
@@ -6,14 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
 import androidx.test.rule.ActivityTestRule;
-import androidx.test.runner.AndroidJUnit4;
 
-import com.example.sharingexpenses.R;
+import com.tosp.sharingexpenses.R;
 
 public class MainPageActivityTest {
 

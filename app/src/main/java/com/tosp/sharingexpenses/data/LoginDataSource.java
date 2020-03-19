@@ -1,6 +1,6 @@
-package com.example.sharingexpenses.data;
+package com.tosp.sharingexpenses.data;
 
-import com.example.sharingexpenses.data.model.LoggedInUser;
+import com.tosp.sharingexpenses.data.model.LoggedInUser;
 
 import java.io.IOException;
 
