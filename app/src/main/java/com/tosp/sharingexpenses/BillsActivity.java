@@ -1,4 +1,4 @@
-package com.example.sharingexpenses;
+package com.tosp.sharingexpenses;
 
 import androidx.appcompat.app.AppCompatActivity;
 
