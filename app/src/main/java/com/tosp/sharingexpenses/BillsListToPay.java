@@ -1,14 +1,12 @@
-package com.example.sharingexpenses;
+package com.tosp.sharingexpenses;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,10 +16,10 @@ import java.util.List;
 
 
 //we need to extend the ArrayAdapter class as we are building an adapter
-public class BillsListPast extends ArrayAdapter<BillsListPastData> {
+public class BillsListToPay extends ArrayAdapter<BillsListToPayData> {
 
     //the list values in the List of type hero
-    List<BillsListPastData> billsList;
+    List<BillsListToPayData> toPayList;
 
     //activity context
     Context context;
@@ -30,11 +28,11 @@ public class BillsListPast extends ArrayAdapter<BillsListPastData> {
     int resource;
 
     //constructor initializing the values
-    public BillsListPast(Context context, int resource, List<BillsListPastData> billsList) {
-        super(context, resource, billsList);
+    public BillsListToPay(Context context, int resource, List<BillsListToPayData> toPayList) {
+        super(context, resource, toPayList);
         this.context = context;
         this.resource = resource;
-        this.billsList = billsList;
+        this.toPayList = toPayList;
     }
 
     //this will return the ListView Item as a View
@@ -51,18 +49,16 @@ public class BillsListPast extends ArrayAdapter<BillsListPastData> {
         @SuppressLint("ViewHolder") View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the
-        TextView name = view.findViewById(R.id.bills_list_past_name);
-        TextView amount = view.findViewById(R.id.bills_list_past_amount);
-        TextView type = view.findViewById(R.id.bills_list_past_type);
-        TextView status = view.findViewById(R.id.bills_list_past_status);
+        TextView name = view.findViewById(R.id.bills_list_topay_name);
+        TextView amount = view.findViewById(R.id.bills_list_topay_amount);
+        Button buttonAccept = view.findViewById(R.id.bills_list_topay_accept);
+        Button buttonRefuse = view.findViewById(R.id.bills_list_topay_refuse);
 
         //getting the hero of the specified position
-        BillsListPastData billsData = billsList.get(position);
+        BillsListToPayData billsData = toPayList.get(position);
 
         name.setText(billsData.getName());
         amount.setText(Integer.toString(billsData.getAmount()));
-        type.setText(billsData.getType());
-        status.setText(billsData.getStatus());
         /*
         //adding a click listener to the button to remove item from the list
         buttonDelete.setOnClickListener(new View.OnClickListener() {
