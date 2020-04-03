@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.tosp.sharingexpenses.ui.main_page.MainPageActivity"></activity>
+        <activity android:name=".ui.main_page.MainPageActivity"></activity>
+        <activity android:name=".BillsActivity"></activity>
         <activity
             android:name="com.tosp.sharingexpenses.ui.login.LoginActivity"
             android:label="@string/app_name">
