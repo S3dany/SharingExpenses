@@ -6,20 +6,29 @@
 
     <TextView
         android:id="@+id/bills_list_topay_name"
+<<<<<<< HEAD
         android:layout_width="100dp"
+=======
+        android:layout_width="wrap_content"
+>>>>>>> 94c5549833dbdb3fb7bd1c92a7ecf65f26b05bed
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Name: " />
 
     <TextView
         android:id="@+id/bills_list_topay_amount"
+<<<<<<< HEAD
         android:layout_width="40dp"
+=======
+        android:layout_width="wrap_content"
+>>>>>>> 94c5549833dbdb3fb7bd1c92a7ecf65f26b05bed
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Amount: " />
 
     <Button
         android:id="@+id/bills_list_topay_accept"
+<<<<<<< HEAD
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -37,4 +46,17 @@
         android:padding="6dp"
         android:text="Refuse"
         android:textSize="12sp" />
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Pay" />
+
+    <Button
+        android:id="@+id/bills_list_topay_refuse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Refuse" />
+>>>>>>> 94c5549833dbdb3fb7bd1c92a7ecf65f26b05bed
 </LinearLayout>
