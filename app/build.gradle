@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.sharingexpenses"
+        applicationId "com.tosp.sharingexpenses"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
