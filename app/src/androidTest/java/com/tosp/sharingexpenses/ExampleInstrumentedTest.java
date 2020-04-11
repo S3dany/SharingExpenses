@@ -1,4 +1,4 @@
-package com.example.sharingexpenses;
+package com.tosp.sharingexpenses;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.sharingexpenses", appContext.getPackageName());
+        assertEquals("com.tosp.sharingexpenses", appContext.getPackageName());
     }
 }

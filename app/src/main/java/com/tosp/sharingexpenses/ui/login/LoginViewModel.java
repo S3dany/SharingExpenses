@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.ui.login;
+package com.tosp.sharingexpenses.ui.login;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.example.sharingexpenses.data.LoginRepository;
-import com.example.sharingexpenses.data.Result;
-import com.example.sharingexpenses.data.model.LoggedInUser;
-import com.example.sharingexpenses.R;
+import com.tosp.sharingexpenses.data.LoginRepository;
+import com.tosp.sharingexpenses.data.Result;
+import com.tosp.sharingexpenses.data.model.LoggedInUser;
+import com.tosp.sharingexpenses.R;
 
 public class LoginViewModel extends ViewModel {
 

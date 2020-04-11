@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.ui.login;
+package com.tosp.sharingexpenses.ui.login;
 
 import android.app.Activity;
 
@@ -23,10 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sharingexpenses.R;
-import com.example.sharingexpenses.ui.login.LoginViewModel;
-import com.example.sharingexpenses.ui.login.LoginViewModelFactory;
-import com.example.sharingexpenses.ui.main_page.MainPageActivity;
+import com.tosp.sharingexpenses.R;
+import com.tosp.sharingexpenses.ui.main_page.MainPageActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
