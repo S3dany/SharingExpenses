@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses;
+package com.tosp.sharingexpenses.ui.bills;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+import com.tosp.sharingexpenses.R;
 
 import java.util.List;
 
@@ -37,9 +37,8 @@ public class BillsListToPay extends ArrayAdapter<BillsListToPayData> {
 
     //this will return the ListView Item as a View
     @SuppressLint("SetTextI18n")
-    @NonNull
     @Override
-    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         //we need to get the view of the xml for our list item
         //And for this we need a layoutinflater

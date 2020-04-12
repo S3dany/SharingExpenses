@@ -1,10 +1,12 @@
-package com.tosp.sharingexpenses;
+package com.tosp.sharingexpenses.ui.bills;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+
+import com.tosp.sharingexpenses.R;
 
 import java.util.ArrayList;
 import java.util.List;

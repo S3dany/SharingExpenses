@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses;
+package com.tosp.sharingexpenses.ui.bills;
 
 public class BillsListToPayData {
     private String name;
