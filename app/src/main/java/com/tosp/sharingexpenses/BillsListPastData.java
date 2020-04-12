@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses;
+package com.example.sharingexpenses;
 
 public class BillsListPastData {
     private String name, type, status;
