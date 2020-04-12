@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.tosp.sharingexpenses.ui.bills.BillsActivity;
 import com.tosp.sharingexpenses.R;
 import com.tosp.sharingexpenses.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +29,7 @@ public class MainPageActivity extends AppCompatActivity {
         mOthersOwe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                startActivity(new Intent(getApplicationContext(), BillsActivity.class));
                 return;
             }
         });
@@ -37,7 +38,7 @@ public class MainPageActivity extends AppCompatActivity {
         mIOwe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                startActivity(new Intent(getApplicationContext(), BillsActivity.class));
                 return;
             }
         });
