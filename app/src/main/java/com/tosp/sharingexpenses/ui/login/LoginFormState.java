@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.ui.login;
+package com.tosp.sharingexpenses.ui.login;
 
 import androidx.annotation.Nullable;
 

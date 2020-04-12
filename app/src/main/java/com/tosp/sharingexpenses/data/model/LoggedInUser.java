@@ -1,4 +1,4 @@
-package com.example.sharingexpenses.data.model;
+package com.tosp.sharingexpenses.data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

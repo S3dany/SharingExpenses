@@ -1,6 +1,6 @@
-package com.example.sharingexpenses.data;
+package com.tosp.sharingexpenses.data;
 
-import com.example.sharingexpenses.data.model.LoggedInUser;
+import com.tosp.sharingexpenses.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and
