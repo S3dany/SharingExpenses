@@ -4,12 +4,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.cardview.widget.CardView;
 import androidx.test.rule.ActivityTestRule;
-
-import com.tosp.sharingexpenses.ui.FriendsPageActivity;
 
 import org.junit.After;
 import org.junit.Before;

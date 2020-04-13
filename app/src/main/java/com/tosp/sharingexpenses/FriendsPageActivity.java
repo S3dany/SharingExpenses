@@ -1,8 +1,7 @@
-package com.tosp.sharingexpenses.ui;
+package com.tosp.sharingexpenses;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.tosp.sharingexpenses.R;
 
 public class FriendsPageActivity extends AppCompatActivity {
 
