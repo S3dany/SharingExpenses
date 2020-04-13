@@ -11,6 +11,7 @@ import com.tosp.sharingexpenses.ui.bills.BillsActivity;
 import com.tosp.sharingexpenses.R;
 import com.tosp.sharingexpenses.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.tosp.sharingexpenses.ui.FriendsPageActivity;
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -57,6 +58,7 @@ public class MainPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
+                startActivity(new Intent(getApplicationContext(), FriendsPageActivity.class));
                 return;
             }
         });
