@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses.ui.main_page;
+package com.tosp.sharingexpenses;
 
 import android.view.View;
 
@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.tosp.sharingexpenses.R;
+
 
 public class MainPageActivityTest {
 

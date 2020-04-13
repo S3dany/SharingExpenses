@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses.ui.bills;
+package com.tosp.sharingexpenses.bills;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
