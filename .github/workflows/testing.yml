@@ -1,8 +1,7 @@
 name: Testing Workflow
 
-# Step 1: Choose the branch or branches you want to run this workflow
 on:
-  pull_request:
+  push:
     branches:
       - master
 
@@ -20,12 +19,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      # Step 2: Decode Google services configuration file
+     
       - name: Decode google-services.json
         env:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: echo $FIREBASE_CONFIG > app/google-services.json
 
-      # Step 4: Run your unit tests
       - name: Run Unit Tests
         run: ./gradlew testStagingDebugUnitTest
