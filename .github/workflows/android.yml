@@ -23,4 +23,4 @@ jobs:
       run: echo $FIREBASE_CONFIG > app/google-services.json
       
     - name: Build with Gradle
-      run: ./gradlew build
+      run: bash ./gradlew build
