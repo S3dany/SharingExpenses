@@ -1,4 +1,4 @@
-package com.tosp.sharingexpenses.bills;
+package com.tosp.sharingexpenses;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,17 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-import com.tosp.sharingexpenses.R;
+import com.tosp.sharingexpenses.bills.Bill;
+import com.tosp.sharingexpenses.bills.BillsListPastAdapter;
+import com.tosp.sharingexpenses.bills.PastBill;
+import com.tosp.sharingexpenses.bills.PastBillList;
+import com.tosp.sharingexpenses.bills.BillsListToPayAdapter;
+import com.tosp.sharingexpenses.bills.BillList;
+import com.tosp.sharingexpenses.bills.BillsListToReceiveAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class BillsActivity extends AppCompatActivity {
-
-    List<BillsListToPayData> toPayList;
-    List<BillsListToPayData> toReceiveList;
-    List<BillsListPastData> pastList;
+    BillList toPayList;
+    BillList toReceiveList;
+    PastBillList pastList;
     ListView toPaylistView;
     ListView toReceiveListView;
     ListView pastListView;
@@ -26,29 +31,29 @@ public class BillsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bills);
 
-        toPayList = new ArrayList<>();
-        toReceiveList = new ArrayList<>();
-        pastList = new ArrayList<>();
+        toPayList = new BillList();
+        toReceiveList = new BillList();
+        pastList = new PastBillList();
 
         toPaylistView = (ListView) findViewById(R.id.listToPay);
         toReceiveListView = (ListView) findViewById(R.id.listToReceive);
         pastListView = (ListView) findViewById(R.id.listPastBills);
 
-        toPayList.add(new BillsListToPayData("Saadany", 200));
-        toPayList.add(new BillsListToPayData("Arash", 300));
-        toPayList.add(new BillsListToPayData("Nurbike", 200));
+        toPayList.addBill(new Bill("Saadany", 200));
+        toPayList.addBill(new Bill("Arash", 300));
+        toPayList.addBill(new Bill("Nurbike", 200));
 
-        toReceiveList.add(new BillsListToPayData("Saadany", 200));
-        toReceiveList.add(new BillsListToPayData("Arash", 300));
-        toReceiveList.add(new BillsListToPayData("Nurbike", 200));
+        toReceiveList.addBill(new Bill("Saadany", 200));
+        toReceiveList.addBill(new Bill("Arash", 300));
+        toReceiveList.addBill(new Bill("Nurbike", 200));
 
-        pastList.add(new BillsListPastData("Saadany", "Incoming", "Accepted", 200));
-        pastList.add(new BillsListPastData("Arash", "Outcoming", "Refused", 200));
-        pastList.add(new BillsListPastData("Nurbike", "Incoming", "Refused", 200));
+        pastList.addBill(new PastBill("Saadany", "Incoming", "Accepted", 200));
+        pastList.addBill(new PastBill("Arash", "Outcoming", "Refused", 200));
+        pastList.addBill(new PastBill("Nurbike", "Incoming", "Refused", 200));
 
-        BillsListToPay toPayAdapter = new BillsListToPay(this, R.layout.bills_list_topay, toPayList);
-        BillsListToReceive toReceiveAdapter = new BillsListToReceive(this, R.layout.bills_list_topay, toReceiveList);
-        BillsListPast pastAdapter = new BillsListPast(this, R.layout.bills_list_past, pastList);
+        BillsListToPayAdapter toPayAdapter = new BillsListToPayAdapter(this, R.layout.bills_list_topay, toPayList.getBills());
+        BillsListToReceiveAdapter toReceiveAdapter = new BillsListToReceiveAdapter(this, R.layout.bills_list_topay, toReceiveList.getBills());
+        BillsListPastAdapter pastAdapter = new BillsListPastAdapter(this, R.layout.bills_list_past, pastList.getBills());
         toPaylistView.setAdapter(toPayAdapter);
         toReceiveListView.setAdapter(toReceiveAdapter);
         pastListView.setAdapter(pastAdapter);
