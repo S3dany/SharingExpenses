@@ -16,10 +16,10 @@ import java.util.List;
 
 
 //we need to extend the ArrayAdapter class as we are building an adapter
-public class BillsListToPay extends ArrayAdapter<BillsListToPayData> {
+public class BillsListToReceiveAdapter extends ArrayAdapter<Bill> {
 
     //the list values in the List of type hero
-    List<BillsListToPayData> toPayList;
+    List<Bill> toPayList;
 
     //activity context
     Context context;
@@ -28,7 +28,7 @@ public class BillsListToPay extends ArrayAdapter<BillsListToPayData> {
     int resource;
 
     //constructor initializing the values
-    public BillsListToPay(Context context, int resource, List<BillsListToPayData> toPayList) {
+    public BillsListToReceiveAdapter(Context context, int resource, List<Bill> toPayList) {
         super(context, resource, toPayList);
         this.context = context;
         this.resource = resource;
@@ -54,7 +54,7 @@ public class BillsListToPay extends ArrayAdapter<BillsListToPayData> {
         Button buttonRefuse = view.findViewById(R.id.bills_list_topay_refuse);
 
         //getting the hero of the specified position
-        BillsListToPayData billsData = toPayList.get(position);
+        Bill billsData = toPayList.get(position);
 
         name.setText(billsData.getName());
         amount.setText(Integer.toString(billsData.getAmount()));

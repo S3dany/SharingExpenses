@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FriendsPageActivity" />
-        <activity android:name=".bills.BillsActivity" />
+        <activity android:name=".BillsActivity" />
         <activity android:name="com.tosp.sharingexpenses.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

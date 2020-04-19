@@ -11,9 +11,6 @@ import static org.junit.Assert.*;
 
 import androidx.test.rule.ActivityTestRule;
 
-import com.tosp.sharingexpenses.R;
-import com.tosp.sharingexpenses.bills.BillsActivity;
-
 public class BillsActivityTest {
 
     //to test an activity we use @Rule
@@ -52,6 +49,35 @@ public class BillsActivityTest {
         assertNotNull(listPastBills);
     }
 
+    @Test
+    public void togglingListToPayIsWorking() {
+        billsPageActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                View listToPay = billsPageActivity.findViewById(R.id.listToPay);
+                View textToPay = billsPageActivity.findViewById(R.id.textToPay);
+                assertEquals(View.VISIBLE, listToPay.getVisibility());
+                textToPay.performClick();
+                assertEquals(View.GONE, listToPay.getVisibility());
+                textToPay.performClick();
+                assertEquals(View.VISIBLE, listToPay.getVisibility());
+            }
+        });
+    }
+
+    @Test
+    public void togglingListToReceiveIsWorking() {
+        billsPageActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                View textToReceive = billsPageActivity.findViewById(R.id.textToReceive);
+                View listToReceive = billsPageActivity.findViewById(R.id.listToReceive);
+                assertEquals(View.VISIBLE, listToReceive.getVisibility());
+                textToReceive.performClick();
+                assertEquals(View.GONE, listToReceive.getVisibility());
+                textToReceive.performClick();
+                assertEquals(View.VISIBLE, listToReceive.getVisibility());
+            }
+        });
+    }
     //this is used to cleanup after the execution of @Test
     @After
     public void tearDown() throws Exception {
