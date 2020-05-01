@@ -44,3 +44,16 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+    }
+}
+
+apply plugin: "org.sonarqube"
