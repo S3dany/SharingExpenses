@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 
+group ='com.tosp.sharingexpenses'
+
 android {
     compileSdkVersion 28
-
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.tosp.sharingexpenses"
@@ -57,3 +59,33 @@ buildscript {
 }
 
 apply plugin: "org.sonarqube"
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task javadoc(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.applicationVariants.collect { variant ->
+        variant.javaCompileProvider.get().classpath.files
+    })
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+}
+
+task classesJar(type: Jar) {
+    from "$buildDir/intermediates/classes/release"
+}
+
+artifacts {
+    archives classesJar
+    archives javadocJar
+    archives sourcesJar
+}
