@@ -25,35 +25,49 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        emailEditText =  findViewById(R.id.emailEditTextinLogIn);
-        passwordEditText  =  findViewById(R.id.pwEditTextinLogin);
+        setTitle("Sign in");
+
+        emailEditText = findViewById(R.id.emailEditTextinLogIn);
+        passwordEditText = findViewById(R.id.pwEditTextinLogin);
         mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null) {
+            startMainActivity();
+        }
+
 
     }
 
-    public void signInClicked(View view){
-        //Sign in the user
-        mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+    public void signInClicked(View view) {
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
 
-                    Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
-                    startActivity(intent);
-
-                } else {
-                    Log.w("ERROR-----------ERROR", task.getException());
-                    Toast.makeText(LoginActivity.this, "Sign in failed. Try Again", Toast.LENGTH_SHORT).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please, enter email and password", Toast.LENGTH_SHORT).show();
+        }else{
+            //Sign in the user
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                        startMainActivity();
+                    } else {
+                        Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 
-    public void signUpTextViewClicked(View view){
+    public void signUpTextViewClicked(View view) {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void startMainActivity(){
+        Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
         startActivity(intent);
     }
 }
