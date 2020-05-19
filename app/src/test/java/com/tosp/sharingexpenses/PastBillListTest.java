@@ -1,9 +1,5 @@
 package com.tosp.sharingexpenses;
 
-import com.tosp.sharingexpenses.bills.Bill;
-import com.tosp.sharingexpenses.bills.PastBill;
-import com.tosp.sharingexpenses.bills.PastBillList;
-
 import org.junit.Before;
 import org.junit.Test;
 
