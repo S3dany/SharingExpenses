@@ -11,14 +11,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FriendsPageActivity" />
         <activity android:name=".BillsActivity" />
-        <activity android:name="com.tosp.sharingexpenses.RegisterActivity">
+        <activity android:name="com.tosp.sharingexpenses.RegisterActivity"/>
+        <activity android:name="com.tosp.sharingexpenses.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tosp.sharingexpenses.LoginActivity" />
         <activity android:name="com.tosp.sharingexpenses.MainPageActivity" />
     </application>
 
