@@ -26,19 +26,6 @@ public class FriendsPageActivityTest {
 
     @Test
     public void testLaunch(){
-        SearchView searchView = mActivity.findViewById(R.id.searchView3);
-        View toolbar = mActivity.findViewById(R.id.toolbar);
-        CardView cardView = mActivity.findViewById(R.id.cardView);
-        TextView textView =mActivity.findViewById(R.id.textView);
-        TextView textView2 =mActivity.findViewById(R.id.textView2);
-        Button button =mActivity.findViewById(R.id.button);
-
-        assertNotNull(searchView);
-        assertNotNull(toolbar);
-        assertNotNull(cardView);
-        assertNotNull(textView);
-        assertNotNull(textView2);
-        assertNotNull(button);
 
     }
 
