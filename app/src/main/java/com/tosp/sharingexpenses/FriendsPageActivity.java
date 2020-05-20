@@ -1,28 +1,28 @@
 package com.tosp.sharingexpenses;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ListView;
-        import android.widget.SearchView;
-        import android.widget.Toast;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Toast;
 
-        import com.google.android.gms.tasks.OnCompleteListener;
-        import com.google.android.gms.tasks.Task;
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.firestore.CollectionReference;
-        import com.google.firebase.firestore.DocumentReference;
-        import com.google.firebase.firestore.DocumentSnapshot;
-        import com.google.firebase.firestore.EventListener;
-        import com.google.firebase.firestore.FirebaseFirestore;
-        import com.google.firebase.firestore.FirebaseFirestoreException;
-        import com.tosp.sharingexpenses.friends.FriendsListAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.tosp.sharingexpenses.friends.FriendsListAdapter;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class FriendsPageActivity extends AppCompatActivity {
 
@@ -76,7 +76,7 @@ public class FriendsPageActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            //add current user and serached user to each others friend list
+                                            //add current user and searched user to each others friend list
                                             addFriend(collRefUsers, currentUser, searchViewText, currentUser);
                                             addFriend(collRefUsers, searchViewText, currentUser, currentUser);
                                         } else {
@@ -93,7 +93,6 @@ public class FriendsPageActivity extends AppCompatActivity {
     }
 
     public void addFriend(final CollectionReference collRefUsers, final String userToUpdate, final String friendToAdd, final String currentUser) {
-
         final DocumentReference docRefUserToUpdate = collRefUsers.document(userToUpdate);
 
         docRefUserToUpdate.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -103,11 +102,13 @@ public class FriendsPageActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         ArrayList<String> newFriendsArray = (ArrayList<String>) document.getData().get("friends");
-                        if (newFriendsArray.contains(friendToAdd) && userToUpdate.equals(currentUser)) {
+                        if (newFriendsArray.contains(friendToAdd)) {
+                            if (userToUpdate.equals(currentUser)) {
                                 Toast.makeText(FriendsPageActivity.this, "Already friends with " + friendToAdd, Toast.LENGTH_SHORT).show();
-                        } else if(friendToAdd.equals(userToUpdate)){
+                            }
+                        } else if (friendToAdd.equals(userToUpdate)) {
                             Toast.makeText(FriendsPageActivity.this, friendToAdd + " is you :D", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             newFriendsArray.add(friendToAdd);
                             docRefUserToUpdate.update("friends", newFriendsArray);
                         }

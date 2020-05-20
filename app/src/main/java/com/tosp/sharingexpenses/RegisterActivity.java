@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText usernameEditText, emailEditText, passwordEditText, confirmPWEditText;
+    EditText emailEditText, passwordEditText, confirmPWEditText;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
 
@@ -35,23 +35,23 @@ public class RegisterActivity extends AppCompatActivity {
 
         setTitle("Sign up");
 
-        emailEditText =  findViewById(R.id.emailEditText);
-        passwordEditText  =  findViewById(R.id.passwordEditText);
-        confirmPWEditText =  findViewById(R.id.confirmPWeditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        confirmPWEditText = findViewById(R.id.confirmPWeditText);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
     }
 
-    public void signUpClicked(View view){
+    public void signUpClicked(View view) {
         final String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String confirmPassword = confirmPWEditText.getText().toString();
 
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please, fill all the fields", Toast.LENGTH_SHORT).show();
-        }else if(!password.equals(confirmPassword)){
+        } else if (!password.equals(confirmPassword)) {
             Toast.makeText(getApplicationContext(), "Password and confirm password mismatch", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             //Sign up the user
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -71,13 +71,13 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    public void signInTextViewClicked(View view){
+    public void signInTextViewClicked(View view) {
         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
     //save user in db and initialize friends list to empty array
-    private void saveUserInDB(String email){
+    private void saveUserInDB(String email) {
         Map<String, ArrayList<String>> friends = new HashMap<>();
         friends.put("friends", new ArrayList<String>());
         db.collection("users").document(email)
@@ -94,5 +94,10 @@ public class RegisterActivity extends AppCompatActivity {
                         Log.w("SaveUserInDB", "Error saving user", e);
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //don't go back from this activity
     }
 }

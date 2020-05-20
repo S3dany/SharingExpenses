@@ -2,7 +2,6 @@ package com.tosp.sharingexpenses.friends;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.tosp.sharingexpenses.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class FriendsListAdapter extends ArrayAdapter<String> {
 
@@ -80,9 +72,7 @@ public class FriendsListAdapter extends ArrayAdapter<String> {
     }
 
     public void removeFriend(final CollectionReference collRefUsers, final String userToUpdate, final String friendToRemove) {
-
         final DocumentReference docRefUserToUpdate = collRefUsers.document(userToUpdate);
-
         docRefUserToUpdate.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

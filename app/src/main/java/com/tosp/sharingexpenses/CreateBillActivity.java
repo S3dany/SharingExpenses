@@ -58,20 +58,20 @@ public class CreateBillActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
-                                setArrayListOfFriends((ArrayList<String>)document.getData().get("friends"));
+                                setArrayListOfFriends((ArrayList<String>) document.getData().get("friends"));
                             }
                         }
                     }
                 });
 
-                if(amount.isEmpty() || payer.isEmpty() || reason.isEmpty()){
+                if (amount.isEmpty() || payer.isEmpty() || reason.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please, fill all the fields", Toast.LENGTH_SHORT).show();
-                }else if(!amount.trim().matches("0|[1-9]\\d*")){
+                } else if (!amount.trim().matches("0|[1-9]\\d*")) {
                     //amount is not non negative natural number
                     Toast.makeText(getApplicationContext(), "Amount should be non negative natural number", Toast.LENGTH_SHORT).show();
-                }else if(!currentUsersfriends.contains(payer)){
-                    Toast.makeText(getApplicationContext(), payer+" isn't your friend", Toast.LENGTH_SHORT).show();
-                }else{
+                } else if (currentUsersfriends != null && !currentUsersfriends.contains(payer)) {
+                    Toast.makeText(getApplicationContext(), payer + " isn't your friend", Toast.LENGTH_SHORT).show();
+                } else if (currentUsersfriends != null) {
                     //All input values are valid, create a bill
                     Map<String, Object> bill = new HashMap<>();
                     bill.put("amount", amount);
@@ -93,7 +93,7 @@ public class CreateBillActivity extends AppCompatActivity {
         });
     }
 
-    public void setArrayListOfFriends(ArrayList<String> friends){
+    public void setArrayListOfFriends(ArrayList<String> friends) {
         currentUsersfriends = friends;
     }
 }

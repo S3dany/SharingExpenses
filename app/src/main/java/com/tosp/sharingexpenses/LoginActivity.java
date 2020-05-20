@@ -67,4 +67,9 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        //don't go back from this activity
+    }
 }
