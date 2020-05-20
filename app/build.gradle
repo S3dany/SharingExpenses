@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-group ='com.tosp.sharingexpenses'
+group = 'com.tosp.sharingexpenses'
 
 android {
     compileSdkVersion 28

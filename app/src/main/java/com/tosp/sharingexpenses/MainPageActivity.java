@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainPageActivity extends AppCompatActivity {
@@ -15,14 +16,14 @@ public class MainPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        Button mOthersOwe = findViewById(R.id.othersOwe);
-        Button mIOwe = findViewById(R.id.iOwe);
-        Button mAddBill = findViewById(R.id.addBill);
-        Button mContacts = findViewById(R.id.contacts);
+        setTitle("Main Page");
+
+        Button mBillsBtn = findViewById(R.id.billsButton);
+        Button mCreateBillBtn = findViewById(R.id.createBillBtn);
+        Button mFriendsBtn = findViewById(R.id.friendsBtn);
         Button mLogout = findViewById(R.id.logout);
 
-        //click listener for mOtherOwe button
-        mOthersOwe.setOnClickListener(new View.OnClickListener() {
+        mBillsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), BillsActivity.class));
@@ -30,35 +31,22 @@ public class MainPageActivity extends AppCompatActivity {
             }
         });
 
-        //click listener for mIOwe button
-        mIOwe.setOnClickListener(new View.OnClickListener() {
+        mCreateBillBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), BillsActivity.class));
+                startActivity(new Intent(getApplicationContext(), CreateBillActivity.class));
                 return;
             }
         });
 
-        //click listener for mAddBill button
-        mAddBill.setOnClickListener(new View.OnClickListener() {
+        mFriendsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
-                return;
-            }
-        });
-
-        //click listener for mContacts button
-        mContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), /*PLACE HOLDER FOR THE RELEVANT ACTIVITY*/));
                 startActivity(new Intent(getApplicationContext(), FriendsPageActivity.class));
                 return;
             }
         });
 
-        //click listener for mLogout button
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,13 +54,18 @@ public class MainPageActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 //to make current page unavailable for the logged out user
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    //we're going to add flags that will tell the activity to clear any running activity on top of it.
-                    //ie. user will no longer have access to anything are relevant for the logged in users
+                //we're going to add flags that will tell the activity to clear any running activity on top of it.
+                //ie. user will no longer have access to anything are relevant for the logged in users
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
                 return;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        //don't go back from this activity, because previous activity is login or register
     }
 }

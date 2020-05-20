@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tosp.sharingexpenses" >
+    package="com.tosp.sharingexpenses">
 
     <application
         android:allowBackup="true"
@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreateBillActivity"></activity>
         <activity android:name=".FriendsPageActivity" />
         <activity android:name=".BillsActivity" />
-        <activity android:name="com.tosp.sharingexpenses.RegisterActivity"/>
-        <activity android:name="com.tosp.sharingexpenses.LoginActivity" >
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tosp.sharingexpenses.MainPageActivity" />
+        <activity android:name=".MainPageActivity" />
     </application>
 
 </manifest>

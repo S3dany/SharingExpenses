@@ -16,16 +16,17 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/othersOwe"
+            android:id="@+id/billsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="others owe me" />
+            android:text="Bills" />
 
         <Button
-            android:id="@+id/iOwe"
+            android:id="@+id/createBillBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I owe others" />
+            android:text="create a bill" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -40,16 +41,10 @@
 
 
         <Button
-            android:id="@+id/addBill"
+            android:id="@+id/friendsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="add a bill" />
-
-        <Button
-            android:id="@+id/contacts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="contacts" />
+            android:text="friends" />
     </LinearLayout>
 
     <Button
