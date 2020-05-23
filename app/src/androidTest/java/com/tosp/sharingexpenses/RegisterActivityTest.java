@@ -29,13 +29,11 @@ public class RegisterActivityTest {
 
     @Test
     public void testLaunch() {
-        View nameEditText = mRegisterActivity.findViewById(R.id.usernameEditText);
         View emailEditText = mRegisterActivity.findViewById(R.id.emailEditText);
         View passwordEditText = mRegisterActivity.findViewById(R.id.passwordEditText);
         View pwConfirmEditText = mRegisterActivity.findViewById(R.id.confirmPWeditText);
         View signUpBtn = mRegisterActivity.findViewById(R.id.signUpBtn);
         View signInTextView = mRegisterActivity.findViewById(R.id.signInTextView);
-        assertNotNull(nameEditText);
         assertNotNull(emailEditText);
         assertNotNull(passwordEditText);
         assertNotNull(pwConfirmEditText);

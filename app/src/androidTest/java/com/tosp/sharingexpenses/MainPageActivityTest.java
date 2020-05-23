@@ -35,13 +35,11 @@ public class MainPageActivityTest {
 
     @Test
     public void testLaunch() {
-        View vOthersOwe = mMainPageActivity.findViewById(R.id.othersOwe);
-        View vIOwe = mMainPageActivity.findViewById(R.id.iOwe);
-        View vAddBill = mMainPageActivity.findViewById(R.id.addBill);
-        View vContacts = mMainPageActivity.findViewById(R.id.contacts);
+        View vOthersOwe = mMainPageActivity.findViewById(R.id.billsButton);
+        View vAddBill = mMainPageActivity.findViewById(R.id.createBillBtn);
+        View vContacts = mMainPageActivity.findViewById(R.id.friendsBtn);
         View vLogot = mMainPageActivity.findViewById(R.id.logout);
         assertNotNull(vOthersOwe);
-        assertNotNull(vIOwe);
         assertNotNull(vAddBill);
         assertNotNull(vContacts);
         assertNotNull(vLogot);
