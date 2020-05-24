@@ -11,14 +11,16 @@ import android.widget.TextView;
 
 import com.tosp.sharingexpenses.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 
 //we need to extend the ArrayAdapter class as we are building an adapter
-public class BillsListPastAdapter extends ArrayAdapter<PastBill> {
+public class BillsListPastAdapter extends ArrayAdapter<Bill> {
 
     //the list values in the List of type hero
-    List<PastBill> billsList;
+    List<Bill> billsList;
 
     //activity context
     Context context;
@@ -27,7 +29,7 @@ public class BillsListPastAdapter extends ArrayAdapter<PastBill> {
     int resource;
 
     //constructor initializing the values
-    public BillsListPastAdapter(Context context, int resource, List<PastBill> billsList) {
+    public BillsListPastAdapter(Context context, int resource, List<Bill> billsList) {
         super(context, resource, billsList);
         this.context = context;
         this.resource = resource;
@@ -47,18 +49,18 @@ public class BillsListPastAdapter extends ArrayAdapter<PastBill> {
         @SuppressLint("ViewHolder") View view = layoutInflater.inflate(resource, null, false);
 
         //getting the view elements of the list from the
-        TextView name = view.findViewById(R.id.bills_list_past_name);
+        TextView fromTo = view.findViewById(R.id.bills_list_past_from_to);
         TextView amount = view.findViewById(R.id.bills_list_past_amount);
-        TextView type = view.findViewById(R.id.bills_list_past_type);
         TextView status = view.findViewById(R.id.bills_list_past_status);
+        TextView reason = view.findViewById(R.id.bills_list_past_reason);
 
         //getting the hero of the specified position
-        PastBill billsData = billsList.get(position);
+        Bill billsData = billsList.get(position);
 
-        name.setText(billsData.getName());
-        amount.setText(Integer.toString(billsData.getAmount()));
-        type.setText(billsData.getType());
-        status.setText(billsData.getStatus());
+        fromTo.setText("From " + billsData.getPayerId() + " to " +billsData.getReceiverId());
+        amount.setText(Integer.toString(billsData.getAmount()) + " HUF");
+        status.setText("Status: " + billsData.getStatus());
+        reason.setText("Reason: " + billsData.getReason());
         return view;
     }
 }

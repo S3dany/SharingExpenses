@@ -32,15 +32,13 @@ public class BillsActivityTest {
     }
 
     @Test
-    public void testLaunch() {
-        View billsInfo = billsPageActivity.findViewById(R.id.bills_info);
+    public void testLaunch(){
         View textToPay = billsPageActivity.findViewById(R.id.textToPay);
         View listToPay = billsPageActivity.findViewById(R.id.listToPay);
         View textToReceive = billsPageActivity.findViewById(R.id.textToReceive);
         View listToReceive = billsPageActivity.findViewById(R.id.listToReceive);
         View textPastBills = billsPageActivity.findViewById(R.id.textPastBills);
         View listPastBills = billsPageActivity.findViewById(R.id.listPastBills);
-        assertNotNull(billsInfo);
         assertNotNull(textToPay);
         assertNotNull(listToPay);
         assertNotNull(textToReceive);

@@ -2,6 +2,7 @@ package com.tosp.sharingexpenses.bills;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.tosp.sharingexpenses.R;
 
 import java.util.List;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 //we need to extend the ArrayAdapter class as we are building an adapter
@@ -46,63 +55,75 @@ public class BillsListToReceiveAdapter extends ArrayAdapter<Bill> {
 
         //getting the view
         @SuppressLint("ViewHolder") View view = layoutInflater.inflate(resource, null, false);
-
-        //getting the view elements of the list from the
-        TextView name = view.findViewById(R.id.bills_list_topay_name);
-        TextView amount = view.findViewById(R.id.bills_list_topay_amount);
-        Button buttonAccept = view.findViewById(R.id.bills_list_topay_accept);
-        Button buttonRefuse = view.findViewById(R.id.bills_list_topay_refuse);
-
         //getting the hero of the specified position
         Bill billsData = toPayList.get(position);
+        //getting the view elements of the list from the
+        TextView name = view.findViewById(R.id.bills_list_toreceive_name);
+        TextView amount = view.findViewById(R.id.bills_list_toreceive_amount);
+        TextView reason = view.findViewById(R.id.bills_list_toreceive_reason);
+        TextView status = view.findViewById(R.id.bills_list_toreceive_status);
+        Button buttonAccept = view.findViewById(R.id.bills_list_toreceive_accept);
+        Button buttonRefuse = view.findViewById(R.id.bills_list_toreceive_refuse);
 
-        name.setText(billsData.getName());
-        amount.setText(Integer.toString(billsData.getAmount()));
-        /*
-        //adding a click listener to the button to remove item from the list
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //we will call this method to remove the selected value from the list
-                //we are passing the position which is to be removed in the method
-                removeHero(position);
-            }
-        });
-        */
-        //finally returning the view
+        if (billsData.getStatus().equals("waitingForReceiver")) {
+            buttonAccept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DocumentReference billToUpdate = FirebaseFirestore.getInstance().collection("bills").document(toPayList.get(position).getId());
+
+                    // Set the "isCapital" field of the city 'DC'
+                    billToUpdate
+                            .update("status", "done")
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error updating document", e);
+                                }
+                            });
+                }
+            });
+
+            buttonRefuse.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DocumentReference billToUpdate = FirebaseFirestore.getInstance().collection("bills").document(toPayList.get(position).getId());
+
+                    // Set the "isCapital" field of the city 'DC'
+                    billToUpdate
+                            .update("status", "notReceived")
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "DocumentSnapshot successfully updated!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error updating document", e);
+                                }
+                            });
+                }
+            });
+            status.setText("Status: waiting for receiver");
+        } else {
+            status.setText("Status: waiting for payment");
+            buttonAccept.setEnabled(false);
+            buttonRefuse.setEnabled(false);
+        }
+
+
+
+
+        name.setText("From " + billsData.getPayerId());
+        amount.setText(billsData.getAmount() + " HUF");
+        reason.setText("Reason: " + billsData.getReason());
         return view;
     }
-    /*
-    //this method will remove the item from the list
-    private void removeHero(final int position) {
-        //Creating an alert dialog to confirm the deletion
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Are you sure you want to delete this?");
-
-        //if the response is positive in the alert
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                //removing the item
-                heroList.remove(position);
-
-                //reloading the list
-                notifyDataSetChanged();
-            }
-        });
-
-        //if response is negative nothing is being done
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-
-        //creating and displaying the alert dialog
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-    */
 }
